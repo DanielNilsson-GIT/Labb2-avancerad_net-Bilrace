@@ -12,7 +12,7 @@ namespace Labb2_avancerad_net_Bilrace
 
         public static bool raceOver = false;
         public static List<Car> winners { get; set; } = new List<Car>();
-        public static double raceDistance { get; } = 500;
+        public static double raceDistance { get; } = 5000;
 
         public static object lockobject = new object();
         public RaceHandler()
@@ -62,11 +62,11 @@ namespace Labb2_avancerad_net_Bilrace
                             winners.Add(raceCar);
 
                         }
-                        raceBegun = false;
+                        raceBegun = false;//racebegun styr varje bil
                         if (winners.Count == 4)
                         {
 
-                            raceOver = true;
+                            raceOver = true; //raceOver styr hela loppet. dödar "status-update"-tråden
                             announceWinner(winners);
                         }
                     }
