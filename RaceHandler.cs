@@ -57,12 +57,20 @@ namespace Labb2_avancerad_net_Bilrace
                 {
                     lock (lockobject)//lock för att endast en tråd ska ha tillgång till listan åt gången
                     {
-                        if (!winners.Contains(raceCar))
-                        {
+                        
+                        
                             winners.Add(raceCar);
-
+                        if (winners[0] == raceCar)
+                        {
+                            Console.WriteLine($"{raceCar.name} Won the race!");
                         }
-                        raceBegun = false;//racebegun styr varje bil
+                        else
+                        {
+                            Console.WriteLine($"{raceCar.name} Crosses the finishline!");
+                        }
+
+
+                            raceBegun = false;//racebegun styr varje bil
                         if (winners.Count == 4)
                         {
 
@@ -83,8 +91,10 @@ namespace Labb2_avancerad_net_Bilrace
 
         public static void announceWinner(List<Car> result)
         {
+            Console.WriteLine("\n");
             Console.WriteLine("“That was intense! Here is the result:”");
-            Console.WriteLine($"“In 4th place…{result[3].name}”\r\n “In 3rd place…{result[2].name}”\r\n “In 2nd place…{result[1].name}”\r\n“And your winner is…{result[0].name}!”");
+            Console.WriteLine($"In 4th place…{result[3].name}\nIn 3rd place…{result[2].name}\nIn 2nd place…{result[1].name}\nAnd your winner is…{result[0].name}!");
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
 
         }
