@@ -8,6 +8,7 @@ namespace Labb2_avancerad_net_Bilrace
 {
     internal class ThemeSong
     {
+        //Funkar ej/används ej
        public static void Note(int freq, int duration)
         {
             if (freq == 0)

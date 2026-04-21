@@ -33,9 +33,9 @@ namespace Labb2_avancerad_net_Bilrace
 
    
 
-        public static double RaceProblems(Car racecar,int roll)
+        public static int RaceProblems(Car racecar,int roll)
         {
-           
+            
             //returnerar milisekunder eller sekunder
             if (roll == 1)
             {
@@ -57,7 +57,7 @@ namespace Labb2_avancerad_net_Bilrace
             {
                 
                     Console.WriteLine($"{racecar.name} Got a motor error, speed lowered by 1Kmh/h");
-                return (1 / 3.6);
+                return (1);
             }
             else
             {

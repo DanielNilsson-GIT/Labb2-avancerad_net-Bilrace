@@ -29,22 +29,22 @@ namespace Labb2_avancerad_net_Bilrace
             Console.WriteLine("3...2...1 GO!");
 
             //Trådar för bilar
-            Thread car_one = new Thread(RaceHandler.StartCar);
+            Thread car_one = new Thread(()=>RaceHandler.StartCar(raceCar1));
 
-            Thread car_two = new Thread(RaceHandler.StartCar);
+            Thread car_two = new Thread(()=>RaceHandler.StartCar(raceCar2));
 
-            Thread car_three = new Thread(RaceHandler.StartCar);
+            Thread car_three = new Thread(()=>RaceHandler.StartCar(raceCar3));
 
-            Thread car_four = new Thread(RaceHandler.StartCar);
+            Thread car_four = new Thread(()=>RaceHandler.StartCar(raceCar4));
 
 
-            car_one.Start(raceCar1);
+            car_one.Start();
             Console.WriteLine(raceCar1.name + " is off!");
-            car_two.Start(raceCar2);
+            car_two.Start();
             Console.WriteLine(raceCar2.name + " away!");
-            car_three.Start(raceCar3);
+            car_three.Start();
             Console.WriteLine(raceCar3.name + " leaves a trail of dust behind!");
-            car_four.Start(raceCar4);
+            car_four.Start();
             Console.WriteLine(raceCar4.name + "'s tires schreehes as he goes!");
 
 

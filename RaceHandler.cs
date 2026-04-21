@@ -12,7 +12,7 @@ namespace Labb2_avancerad_net_Bilrace
 
         public static bool raceOver = false;
         public static List<Car> winners { get; set; } = new List<Car>();
-        public static double raceDistance { get; } = 5000;
+        public static double raceDistance { get; } = 1000;
 
         public static object lockobject = new object();
         public RaceHandler()
@@ -22,9 +22,8 @@ namespace Labb2_avancerad_net_Bilrace
 
 
 
-        public static void StartCar(Object car)
+        public static void StartCar(Car raceCar)
         {
-            Car raceCar = (Car)car; //För att thread ska kunna använda metoden så måste jag tydligen använda ett "generiskt" object. därav omvandling. 
 
             
 
@@ -35,18 +34,18 @@ namespace Labb2_avancerad_net_Bilrace
             while (raceBegun) //Loop för att köra bilen och beta av sträckan
             {
                 counter++;
-                if (counter == 10)
+                if (counter == 100)
                 {
                     int diceRoll = Problems.ProbabilityCalculator();
-                    double delay = Problems.RaceProblems(raceCar, diceRoll);
+                    int delay = Problems.RaceProblems(raceCar, diceRoll);
 
-                    if (delay == (1 / 3.6))
+                    if (delay == 1)
                     {
                         raceCar.speed = raceCar.speed - delay;
                     }
                     else
                     {
-                        Thread.Sleep((int)delay);
+                        Thread.Sleep(delay);
 
                     }
                     counter = 0;
@@ -81,8 +80,11 @@ namespace Labb2_avancerad_net_Bilrace
                     break;
 
                 }
-                raceCar.distance = raceCar.distance + (raceCar.speed / 3.6);
-                Thread.Sleep(1000);
+                
+                raceCar.distance = raceCar.distance + (raceCar.speed / 36);
+           
+
+                Thread.Sleep(100);
             }
 
         }

@@ -16,12 +16,15 @@ namespace Labb2_avancerad_net_Bilrace
 
         public double distance { get; set; }
 
+        public int trackPos { get; set; } //används ej i nuläget... tänkte ha till att rita ut grafik
+
 
         public Car()
         {
             Id = ++Counter;
             speed = 120;
             distance = 0;
+            trackPos = Id + 10;
 
 
         }
